@@ -68,13 +68,17 @@ export default function Home() {
 
   const handleDrop = (event) => {
     event.preventDefault();
+
+    // The target piece or square
     const id = event.target.id;
 
-    if (!!id) {
+    if (!!id && grabbedPiece !== id) { // the target is not itself
+
+      // If we moved our piece to an occupied square
       if (Object.keys(pieceStates).includes(event.target.id)) {
-        // Get target rank & file
-        const rank = pieceStates[id].rank;
-        const file = pieceStates[id].file;
+        // Get target piece's rank & file
+        const rank = pieceStates[id].rank; // horizontal
+        const file = pieceStates[id].file; // vertical
 
         // Set captured piece to captured
         setPieceStates(pieceStates => ({ ...pieceStates, [id]: { ...pieceStates[id], inPlay: false } }));
@@ -82,7 +86,7 @@ export default function Home() {
         // Update moved piece
         setPieceStates(pieceStates => ({ ...pieceStates, [grabbedPiece]: { ...pieceStates[grabbedPiece], rank: rank, file: file } }));
 
-      } else {
+      } else { // Piece was moved to an open square
         const rank = id.split("")[0];
         const file = id.split("")[1];
         setPieceStates(pieceStates => ({ ...pieceStates, [grabbedPiece]: { ...pieceStates[grabbedPiece], rank: rank, file: file } }));
@@ -118,7 +122,6 @@ export default function Home() {
         key={`${rank}${fileNumber}`}
       >{pieceComponent}</Square>
     })
-    console.log(squares);
     return <File key={`file-${fileNumber}`} file={fileNumber} pieceStates={pieceStates}>{squares}</File>;
   })
 
