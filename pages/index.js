@@ -143,8 +143,10 @@ export default function Home() {
   return (
     <>
       <main>
+        <div className='container'>
         <div id='chess-board'>
           {Files}
+          </div>
         </div>
       </main>
     </>
