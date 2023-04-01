@@ -25,7 +25,6 @@
 .square {
   width: 100px;
   height: 100%;
-
 }
 
 /* Pieces */
@@ -41,6 +40,13 @@
 
 .grab:active {
   cursor: grabbing;
+}
+
+/* Containers & Positioning */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 3em;
 }
 
 /* Effects */
