@@ -144,8 +144,8 @@ export default function Home() {
     <>
       <main>
         <div className='container'>
-        <div id='chess-board'>
-          {Files}
+          <div id='chess-board'>
+            {Files}
           </div>
         </div>
       </main>
