@@ -130,7 +130,7 @@ export default function Home() {
       }
 
       return <Square
-        hovered={`${rank}${fileNumber}`===hoveredSquare}
+        hovered={`${rank}${fileNumber}` === hoveredSquare}
         handleDragOver={handleDragOver}
         handleDrop={handleDrop}
         id={`${rank}${fileNumber}`}
